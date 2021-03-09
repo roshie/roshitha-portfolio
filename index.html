@@ -529,11 +529,25 @@ https://templatemo.com/tm-518-sentra
                                 </div>
                                 <div class="col-md-12">
                                   <fieldset>
-                                    <button type="submit" id="form-submit" class="btn">Send Message Now</button>
+                                    <button type="button" id="form-submit" class="btn">Send Message Now</button>
+                                    <div id="submit-loader">
+                                        <div class="text-loader">Sending...</div>                             
+                                             <div class="s-loader">
+                                                      <div class="bounce1"></div>
+                                                      <div class="bounce2"></div>
+                                                      <div class="bounce3"></div>
+                                                </div>
+                                            </div>
                                   </fieldset>
                                 </div>
                             </div>
                         </form>
+                        <div id="message-warning">            	
+                        </div>            
+                        <!-- contact-success -->
+                          <div id="message-success">
+                           <i class="fa fa-check"></i>Your message was sent, thank you!<br>
+                          </div>
                     </div>
                 </div>
             </section>
@@ -655,7 +669,7 @@ https://templatemo.com/tm-518-sentra
 	<script src="js/inview.js"></script>
 	<script src="js/animate.js"></script>
 	<script src="js/custom.js"></script>
-    <script src="contactform/contactform.js"></script>
+
     
 
 </body>

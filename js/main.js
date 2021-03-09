@@ -115,3 +115,54 @@ jQuery(document).ready(function($) {
 
 
 });
+
+$('#form-submit').on('click', function(e) {
+    /* submit via ajax */
+
+
+        var sLoader = $('#submit-loader');
+
+        $.ajax({      	
+
+          type: "POST",
+          url: "inc/sendEmail.php",
+          data: {
+            contactName: $('#name').val(), 
+            contactEmail: $('#email').val(),
+            contactSubject: $('#subject').val(),
+            contactMessage: $('#message').val(),
+          },
+          beforeSend: function() { 
+
+              sLoader.fadeIn(); 
+
+          },
+          success: function(msg) {
+
+            // Message was sent
+            if (msg == 'OK') {
+                sLoader.fadeOut(); 
+               $('#message-warning').hide();
+               $('#contact').fadeOut();
+               $('#message-success').fadeIn();   
+            }
+            // There was an error
+            else {
+                sLoader.fadeOut(); 
+                $('#message-warning').html(msg);
+                $('#message-warning').fadeIn();
+            }
+
+          },
+          error: function() {
+
+              sLoader.fadeOut(); 
+              $('#message-warning').html("Something went wrong. Please try again Later.");
+             $('#message-warning').fadeIn();
+
+          }
+
+      });     		
+   
+    });
+
